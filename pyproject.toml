@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ai-agent"
+version = "0.1.0"
+description = "AI-powered workplace automation agent with ReAct loop"
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=0.40.0",
+    "pydantic>=2.7.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.7.0",
+    "structlog>=24.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+    "mypy>=1.10.0",
+    "ruff>=0.4.0",
+]
+
+[project.scripts]
+agent = "ai_agent.cli.main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=ai_agent --cov-report=term-missing --cov-fail-under=80"
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+exclude = ["tests/"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.coverage.run]
+omit = ["ai_agent/cli/*", "tests/*", "agent.py"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["ai_agent"]
