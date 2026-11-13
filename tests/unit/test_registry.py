@@ -78,5 +78,5 @@ def test_to_anthropic_format(registry: ToolRegistry) -> None:
 
 def test_register_many() -> None:
     reg = ToolRegistry()
-    reg.register_many([_ADD_TOOL, _ADD_TOOL])  # duplicate name — last wins
+    reg.register_many([_ADD_TOOL, _ADD_TOOL])  # duplicate name: last wins
     assert len(reg.names) == 1

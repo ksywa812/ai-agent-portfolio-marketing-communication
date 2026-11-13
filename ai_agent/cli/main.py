@@ -17,7 +17,7 @@ console = Console()
 def _print_welcome() -> None:
     console.print(
         Panel(
-            "[bold]Intentio[/bold] — workplace automation agent\n"
+            "[bold]Intentio[/bold]: workplace automation agent\n"
             "Type your request in plain English. Special commands: [dim]:help[/dim]  [dim]:history[/dim]  [dim]:exit[/dim]",
             border_style="dim",
         )

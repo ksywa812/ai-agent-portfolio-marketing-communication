@@ -1,4 +1,4 @@
-"""Scenario A — simple Slack message send.
+"""Scenario A: simple Slack message send.
 
 Prompt: 'Send a message to #engineering: Deployment of v2.4.1 completed successfully.'
 Expected: agent calls slack__send_message with correct parameters.
@@ -48,7 +48,7 @@ def test_scenario_a_message_visible_in_search(seeded_store: MockStore, registry:
     loop = _build(seeded_store, registry)
     loop.run("Send a message to #engineering: Deployment of v2.4.1 completed successfully.")
 
-    # Message must be retrievable — proves state persists
+    # Message must be retrievable: proves state persists
     search = seeded_store.slack.search_messages("v2.4.1")
     assert search["total"] == 1
     assert "v2.4.1" in search["messages"][0]["text"]

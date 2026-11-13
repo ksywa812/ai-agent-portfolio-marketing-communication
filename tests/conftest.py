@@ -13,16 +13,12 @@ from ai_agent.tools.calendar import make_calendar_tools
 from ai_agent.tools.email import make_email_tools
 from ai_agent.tools.jira import make_jira_tools
 from ai_agent.tools.slack import make_slack_tools
-
-
-# ---------------------------------------------------------------------------
 # Mock store fixtures
-# ---------------------------------------------------------------------------
 
 
 @pytest.fixture
 def fresh_store() -> MockStore:
-    """Empty mock store — no channels, events, or issues."""
+    """Empty mock store: no channels, events, or issues."""
     return MockStore.create()
 
 
@@ -32,11 +28,7 @@ def seeded_store() -> MockStore:
     store = MockStore.create()
     seed_store(store)
     return store
-
-
-# ---------------------------------------------------------------------------
 # Registry fixture
-# ---------------------------------------------------------------------------
 
 
 @pytest.fixture
@@ -47,11 +39,7 @@ def registry(seeded_store: MockStore) -> ToolRegistry:
     reg.register_many(make_jira_tools(seeded_store.jira))
     reg.register_many(make_email_tools(seeded_store.email))
     return reg
-
-
-# ---------------------------------------------------------------------------
 # Mock LLM client for integration tests
-# ---------------------------------------------------------------------------
 
 
 class MockLLMClient:
@@ -83,7 +71,7 @@ class MockLLMClient:
 
 
 def tool_response(tool_calls: list[ToolCall]) -> LLMResponse:
-    """Helper — build an LLMResponse that requests tool calls."""
+    """Helper: build an LLMResponse that requests tool calls."""
     raw = [
         {"type": "tool_use", "id": tc.id, "name": tc.name, "input": tc.input}
         for tc in tool_calls
@@ -97,7 +85,7 @@ def tool_response(tool_calls: list[ToolCall]) -> LLMResponse:
 
 
 def text_response(text: str) -> LLMResponse:
-    """Helper — build a final LLMResponse with no tool calls."""
+    """Helper: build a final LLMResponse with no tool calls."""
     return LLMResponse(
         content=text,
         tool_calls=[],

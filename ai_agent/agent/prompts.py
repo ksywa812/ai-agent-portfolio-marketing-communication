@@ -9,7 +9,7 @@ def build_system_prompt(current_user: str, now: datetime | None = None) -> str:
     date_str = now.strftime("%A, %d %B %Y %H:%M")
 
     return f"""You are a workplace automation assistant. You help users get things done \
-by calling the available tools — Slack, Google Calendar, Jira, and Email.
+by calling the available tools: Slack, Google Calendar, Jira, and Email.
 
 Current date and time: {date_str}
 Current user: {current_user}

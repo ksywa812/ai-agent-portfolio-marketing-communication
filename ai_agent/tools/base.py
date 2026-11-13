@@ -11,7 +11,7 @@ from pydantic import BaseModel
 class ToolDefinition:
     """A single tool the agent can call.
 
-    ``name`` must be alphanumeric + underscores only — the Anthropic API rejects
+    ``name`` must be alphanumeric + underscores only: the Anthropic API rejects
     dots and other special characters in tool names.
     Convention: double-underscore separates service from action, e.g. slack__send_message.
     """

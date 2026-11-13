@@ -59,7 +59,7 @@ class AgentLoop:
             # Append the assistant message with all tool_use blocks
             messages.append({"role": "assistant", "content": response.raw_blocks})
 
-            # Execute every tool call in this turn (Claude may request several at once)
+            # Execute every tool call in this turn (the model may request several at once)
             tool_results = []
             for tc in response.tool_calls:
                 log.info("tool_executing", tool=tc.name, input=tc.input)

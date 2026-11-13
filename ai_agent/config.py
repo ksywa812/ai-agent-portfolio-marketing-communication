@@ -32,7 +32,7 @@ class Settings(BaseSettings):
     # Identity
     current_user: str = "pawelc"
 
-    # Error injection — one of: rate_limit | timeout | server_error
+    # Error injection: one of: rate_limit | timeout | server_error
     slack_force_error: ErrorMode | None = None
     calendar_force_error: ErrorMode | None = None
     jira_force_error: ErrorMode | None = None

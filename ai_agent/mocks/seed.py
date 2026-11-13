@@ -70,7 +70,7 @@ def _seed_jira(store: MockStore, current_user: str) -> None:
     )
     store.jira.create_issue(
         title="Migrate to PostgreSQL 16",
-        description="DB upgrade planned for Q2 — coordinate with infra team",
+        description="DB upgrade planned for Q2: coordinate with infra team",
         reporter="anna",
     )
     store.jira.create_issue(

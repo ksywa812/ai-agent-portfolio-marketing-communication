@@ -8,11 +8,7 @@ import anthropic
 import pytest
 
 from ai_agent.llm.client import LLMClient, ToolCall
-
-
-# ---------------------------------------------------------------------------
-# Helpers — fake Anthropic response objects
-# ---------------------------------------------------------------------------
+# Helpers: fake Anthropic response objects
 
 
 @dataclass
@@ -37,11 +33,7 @@ class _FakeMessage:
 
 def _make_client() -> LLMClient:
     return LLMClient(api_key="test-key", model="claude-test", max_retries=3)
-
-
-# ---------------------------------------------------------------------------
 # Tests
-# ---------------------------------------------------------------------------
 
 
 def test_chat_returns_text_response() -> None:

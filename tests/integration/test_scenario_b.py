@@ -1,4 +1,4 @@
-"""Scenario B — multi-step: Jira ticket + assign + Slack notification.
+"""Scenario B: multi-step: Jira ticket + assign + Slack notification.
 
 Prompt: 'Create a Jira ticket for the login bug, assign it to me, then notify #backend-team on Slack.'
 Expected: jira__create_issue → jira__transition_issue (assign) → slack__send_message

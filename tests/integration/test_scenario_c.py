@@ -1,4 +1,4 @@
-"""Scenario C — search and aggregation: calendar events + free slot.
+"""Scenario C: search and aggregation: calendar events + free slot.
 
 Prompt: 'Show me all my calendar events this week and find a free 2-hour slot for a meeting.'
 Expected: calendar__list_events → calendar__find_free_slot → final answer
@@ -41,7 +41,7 @@ def _build(store: MockStore, registry: ToolRegistry) -> AgentLoop:
                 )
             ]),
             text_response(
-                "You have 4 events this week. The first free 2-hour slot is Monday 09:30–11:30."
+                "You have 4 events this week. The first free 2-hour slot is Monday 09:30 to 11:30."
             ),
         ]
     )
